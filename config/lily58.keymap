@@ -8,50 +8,54 @@
 #include <dt-bindings/zmk/keys.h>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/ext_power.h>
-#include <locale/keys_de.h>
+
+// German Windows layout direct keycodes
+// [ = AltGr+8, ] = AltGr+9, { = AltGr+7, } = AltGr+0
+// @ = AltGr+Q, \ = AltGr+ß(MINUS), | = AltGr+<(NUBS), ~ = AltGr++(RBKT)
+// # = BSLH key directly
 
 / {
     behaviors {
         num2: num2_at {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N2>, <&kp DE_AT>;
+            bindings = <&kp N2>, <&kp RA(Q)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         num3: num3_hash {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N3>, <&kp DE_HASH>;
+            bindings = <&kp N3>, <&kp BSLH>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         num6: num6_caret {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N6>, <&kp DE_CARET>;
+            bindings = <&kp N6>, <&kp GRAVE>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         num7: num7_amps {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N7>, <&kp DE_AMPS>;
+            bindings = <&kp N7>, <&kp LS(N6)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         num8: num8_star {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N8>, <&kp DE_ASTRK>;
+            bindings = <&kp N8>, <&kp LS(RBKT)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         num9: num9_lpar {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N9>, <&kp DE_LPAR>;
+            bindings = <&kp N9>, <&kp LS(N8)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         num0: num0_rpar {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp N0>, <&kp DE_RPAR>;
+            bindings = <&kp N0>, <&kp LS(N9)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
     };
@@ -71,7 +75,7 @@
 &kp ESC   &kp N1 &num2  &num3    &kp N4   &kp N5                     &num6  &num7    &num8     &num9   &num0    &kp GRAVE
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
 &kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp DE_LBKT   &kp DE_RBKT &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp RA(N8)   &kp RA(N9) &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
                         &kp LALT &kp LGUI &mo 1  &kp RET  &kp SPACE  &mo 2  &kp BSPC &kp RGUI
             >;
 
@@ -89,8 +93,8 @@
             bindings = <
 &bt BT_CLR &bt BT_SEL 0     &bt BT_SEL 1      &bt BT_SEL 2      &bt BT_SEL 3 &bt BT_SEL 4                 &trans    &trans    &trans          &trans    &trans    &trans
 &kp F1     &kp F2           &kp F3            &kp F4            &kp F5       &kp F6                       &kp F7    &kp F8    &kp F9          &kp F10   &kp F11   &kp F12
-&kp DE_GRAVE  &kp DE_EXCL         &kp DE_AT            &kp DE_HASH          &kp DE_DLLR   &kp DE_PRCNT                    &kp DE_CARET &kp DE_AMPS  &kp DE_ASTRK &kp DE_LPAR  &kp DE_RPAR  &kp DE_TILDE
-&trans     &trans           &trans            &trans            &trans       &trans    &trans   &trans    &trans    &kp DE_MINUS &kp DE_PLUS     &kp DE_LBRC  &kp DE_RBRC  &kp DE_PIPE
+&kp GRAVE  &kp LS(N1)      &kp RA(Q)         &kp BSLH             &kp LS(N4)    &kp LS(N5)                      &kp GRAVE    &kp LS(N6)   &kp LS(RBKT) &kp LS(N8)   &kp LS(N9)   &kp RA(RBKT)
+&trans     &trans           &trans            &trans            &trans       &trans    &trans   &trans    &trans    &kp FSLH     &kp RBKT        &kp RA(N7)   &kp RA(N0)   &kp RA(NUBS)
                                               &trans            &trans       &trans    &trans   &trans    &trans    &trans    &trans
             >;
 
@@ -109,7 +113,7 @@
 &trans    &trans &trans &trans  &trans  &trans                       &trans      &trans    &trans    &trans   &trans    &trans
 &kp GRAVE &kp N1 &kp N2 &kp N3  &kp N4  &kp N5                       &kp N6      &kp N7    &kp N8    &kp N9   &kp N0    &trans
 &kp F1    &kp F2 &kp F3 &kp F4  &kp F5  &kp F6                       &trans      &kp LEFT  &kp DOWN  &kp UP   &kp RIGHT &trans
-&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp DE_PLUS &kp DE_MINUS &kp DE_EQUAL &kp DE_LBKT &kp DE_RBKT  &kp DE_BSLH
+&kp F7    &kp F8 &kp F9 &kp F10 &kp F11 &kp F12   &trans   &trans    &kp RBKT    &kp FSLH     &kp LS(N0)   &kp RA(N8)  &kp RA(N9)   &kp RA(MINUS)
                         &trans  &trans  &trans    &trans   &trans    &trans      &trans    &trans
             >;
 
