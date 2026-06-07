@@ -58,6 +58,42 @@
             bindings = <&kp N0>, <&kp LS(N9)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
+        lbrc_lbkt: lbrc_lbkt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(N7)>, <&kp RA(N8)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        rbrc_rbkt: rbrc_rbkt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp RA(N0)>, <&kp RA(N9)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        comma_lt: comma_lt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp NUBS>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        dot_gt: dot_gt {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp LS(NUBS)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        fslh_qmark: fslh_qmark {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(N7)>, <&kp LS(MINUS)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
+        semi_colon: semi_colon {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp LS(DOT)>, <&kp LS(COMMA)>;
+            mods = <(MOD_LSFT|MOD_RSFT)>;
+        };
     };
 
     keymap {
@@ -74,8 +110,8 @@
             bindings = <
 &kp ESC   &kp N1 &num2  &num3    &kp N4   &kp N5                     &num6  &num7    &num8     &num9   &num0    &kp GRAVE
 &kp TAB   &kp Q  &kp W  &kp E    &kp R    &kp T                      &kp Y  &kp U    &kp I     &kp O   &kp P    &kp MINUS
-&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &kp SEMI &kp SQT
-&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &kp RA(N8)   &kp RA(N9) &kp N  &kp M    &kp COMMA &kp DOT &kp FSLH &kp RSHFT
+&kp LCTRL &kp A  &kp S  &kp D    &kp F    &kp G                      &kp H  &kp J    &kp K     &kp L   &semi_colon &kp SQT
+&kp LSHFT &kp Z  &kp X  &kp C    &kp V    &kp B  &lbrc_lbkt   &rbrc_rbkt &kp N  &kp M    &comma_lt &dot_gt &fslh_qmark &kp RSHFT
                         &kp LALT &kp LGUI &mo 1  &kp RET  &kp SPACE  &mo 2  &kp BSPC &kp RGUI
             >;
 
