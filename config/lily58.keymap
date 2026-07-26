@@ -73,13 +73,13 @@
         comma_lt: comma_lt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp COMMA>, <&kp LS(COMMA)>; // , / <
+            bindings = <&kp COMMA>, <&kp NUBS>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         dot_gt: dot_gt {
             compatible = "zmk,behavior-mod-morph";
             #binding-cells = <0>;
-            bindings = <&kp DOT>, <&kp LS(DOT)>; // . / >
+            bindings = <&kp DOT>, <&kp LS(NUBS)>;
             mods = <(MOD_LSFT|MOD_RSFT)>;
         };
         fslh_qmark: fslh_qmark {
